@@ -1,6 +1,10 @@
 call plug#begin()
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 	Plug 'drewtempelmeyer/palenight.vim'
 	Plug 'tpope/vim-surround'
+  Plug 'mhinz/vim-signify'
+  Plug 'tpope/vim-fugitive'
 	Plug 'chemzqm/vim-jsx-improve'
 	Plug 'leafgarland/typescript-vim'
 	Plug 'peitalin/vim-jsx-typescript'
@@ -21,6 +25,7 @@ set tabstop=2
 set shiftwidth=2
 map <F2> :retab <CR> :wq! <CR>
 
+let g:fzf_preview_window = 'right:60%'
 let mapleader=" "
 
 " Random shit COC recommends
@@ -74,9 +79,6 @@ augroup mygroup
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
-
-
-
 
 if (has("nvim"))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
