@@ -32,6 +32,7 @@ nmap <leader>s :CocCommand prettier.formatFile<cr>
 nmap <leader>d :Rg<CR>
 nmap <leader>f :Files<CR>
 nmap <leader>r <Plug>(coc-rename)
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Random shit COC recommends
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
