@@ -23,15 +23,33 @@ call plug#begin()
 	Plug 'peitalin/vim-jsx-typescript'
   Plug 'metakirby5/codi.vim'
 	Plug 'neoclide/coc.nvim'
+  Plug 'voldikss/vim-floaterm'
 call plug#end()
 
 colorscheme palenight
 
+function Colab()
+  :tab
+  :cd ~/gradient
+  :term ./start.bash
+
+  :tabnew 
+  :cd ~/gradient/portal/static
+  :term npm run build:rtf:watch
+
+  :tabnew 
+  :cd ~/gradient/portal/static
+  :term npm run build:watch
+endfunction
+
 nmap <leader>a :CocCommand explorer<CR>
 nmap <leader>s :CocCommand prettier.formatFile<cr>
 nmap <leader>d :Rg<CR>
-nmap <leader>f :Files<CR>
+nmap <leader>f :GFiles<CR>
 nmap <leader>r <Plug>(coc-rename)
+nmap <leader>j :FloatermNew --autoclose=2 --name=doingstuff zsh<CR>
+nmap <leader>k :tabnew<CR>
+nmap <leader>c :call Colab()<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Random shit COC recommends
