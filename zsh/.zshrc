@@ -5,3 +5,4 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 alias cd=z
+alias vim=nvim
